@@ -8,19 +8,25 @@ app = Flask(__name__)
 def new_user():
     return render_template("registration.html")
 
-# Add a new Data to the Table in the Database
+# Add new Data to the Table in the Database
 @app.route('/addnew', methods=['POST', 'GET'])
 def addnew():
     if request.method == 'POST':
-        nm = request.form['name']
-        print nm
+        name = request.form['name']
+        email = request.form['email']
+        age = request.form['age']
+
+        print name
+        print email
+        print age
+
         with sql.connect("college.db") as con:
             cur = con.cursor()
-            cur.execute("INSERT INTO student(name) VALUES(?)",(nm,) )
-
+            cur.execute("INSERT INTO student(name, email, age) VALUES(?,?,?)",(name,email,age,))
 
             con.commit()
             msg = "Record successfully added"
+
         return render_template("result.html", msg=msg)
         con.close()
 
@@ -35,7 +41,7 @@ def list():
 
     rows = cur.fetchall();
 
-    return render_template("list.html", rows = rows)
+    return render_template("list.html", rows=rows)
 
 if __name__ == "__main__":
     app.run(debug=True)

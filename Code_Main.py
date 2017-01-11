@@ -7,11 +7,6 @@ app = Flask(__name__)
 def index():
     return "Hello World";
 
-@app.route('/profile')
-def profile():
-    return "<h1><u>Welcome to Profile Page</u></h1>" \
-           "<br>How are you ?"
-
 # For strings
 @app.route('/profile/<username>')
 def display_name(username):
