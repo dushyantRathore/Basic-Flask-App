@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+</head>
+<body>
+
+<form action = "{{ url_for('addnew') }}" method = "POST">
+    <label>Enter your Name : </label>
+    <input type="text" name = "name">
+    <br><br>
+    <input type = "submit" value="Submit">
+</form>
+
+</body>
+</html>
