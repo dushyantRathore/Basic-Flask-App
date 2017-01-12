@@ -12,7 +12,7 @@ def index():
 @app.route('/check', methods=['POST', 'GET'])
 def check():
     if request.method == 'POST':
-        marks = request.form['marks']
+        marks = int(request.form['marks'])
         print marks
 
         return render_template("status.html", marks=marks)  # Transfer Control

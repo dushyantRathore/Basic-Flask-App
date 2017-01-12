@@ -6,7 +6,11 @@
 </head>
 <body>
 
-<h1>Your marks are {{ marks }}</h1>
+{% if marks >= 40 %}
+    <h1>You have passed</h1>
+{% else %}
+    <h1>You have failed</h1>
+{% endif %}
 
 </body>
 </html>
