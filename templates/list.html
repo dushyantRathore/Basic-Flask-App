@@ -5,15 +5,15 @@
       <table border = 1>
          <thead>
             <td>Name</td>
-            <td>Email ID</td>
+            <td>Email</td>
             <td>Age</td>
          </thead>
 
          {% for row in rows %}
             <tr>
                <td>{{row["name"]}}</td>
-                <td>{{row["email"]}}</td>
-                <td>{{row["age"]}}</td>
+               <td>{{row["email"]}}</td>
+               <td>{{row["age"]}}</td>
             </tr>
          {% endfor %}
       </table>

@@ -15,12 +15,14 @@ def query():
         name = request.form["name"]
 
         con = sql.connect("college.db")
+        con.row_factory = sql.Row
+
         cur = con.cursor()
         cur.execute("SELECT * FROM student WHERE name = ?", (name,))
 
         rows = cur.fetchall()
 
-        return render_template("print.html", rows=rows)
+        return render_template("list.html", rows=rows)
 
 if __name__ == "__main__":
     app.run(debug=True)
