@@ -32,7 +32,7 @@ def protected():
     if request.args.get("token"):
         token = request.args.get("token")
         if db.users.find_one({"token" : token}):
-            return jsonify({"message" : "Valid token. Only valid users can view this"})
+            return jsonify({"message": "Valid token. Only valid users can view this"})
         else:
             return jsonify({"message" : "Please supply a valid token, this token cannot be found."})
     else:
