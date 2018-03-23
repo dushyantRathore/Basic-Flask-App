@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+{% from "formhelpers.html" import render_field %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WTforms</title>
+</head>
+<body>
+
+<form method="POST", action="/">
+    {{ form.csrf_token }}
+    {{ render_field(form.username) }}
+    <br><br>
+    {{ render_field(form.password) }}
+    <br><br>
+    <input type="submit" value="Login">
+</form>
+
+</body>
+</html>
